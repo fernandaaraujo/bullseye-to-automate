@@ -1,0 +1,18 @@
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    cocoapods(try_repo_update_on_error: true)
+  end
+
+  desc "Builds and run unit tests"
+  lane :test do
+    # add actions here: https://docs.fastlane.tools/actions
+    scan(scheme: "BullsEye")
+  end
+
+  desc "Builds and run UI tests"
+  lane :ui_test do
+    scan(scheme: "UITests")
+  end
+end
